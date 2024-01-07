@@ -1,5 +1,5 @@
 use aws_sdk_cloudfront::types::Distribution;
-use chrono::{DateTime, Utc};
+// use chrono::{DateTime, Utc};
 use markdown_gen::markdown::{AsMarkdown, List, Markdown};
 use std::fs;
 use std::fs::File;
@@ -21,17 +21,17 @@ pub(crate) async fn generate_markdown(distribution_id: &str, _output_path: Optio
     )
     .unwrap();
     let mut md = Markdown::new(file);
-    let utc: DateTime<Utc> = Utc::now();
+    // let utc: DateTime<Utc> = Utc::now();
     md.write(format!("Cloudfront {}", distribution_config.comment).heading(1))
         .unwrap();
-    md.write(
-        format!(
-            "<sub>Documentation last update: {} UTC</sub>",
-            utc.format("%Y/%m/%d %H:%M:%S").to_string()
-        )
-        .as_str(),
-    )
-    .unwrap();
+    // md.write(
+    //     format!(
+    //         "<sub>Documentation last update: {} UTC</sub>",
+    //         utc.format("%Y/%m/%d %H:%M:%S").to_string()
+    //     )
+    //     .as_str(),
+    // )
+    // .unwrap();
     md.write("Parameters:".heading(2)).unwrap();
     md.write(
         List::new(false)
