@@ -1,4 +1,3 @@
-use crate::cli::arguments::Cli;
 use crate::resources::distro;
 use serde::Deserialize;
 use std::fs::File;
@@ -20,7 +19,7 @@ struct Config {
     #[serde(flatten)]
     environments: std::collections::BTreeMap<String, Env>,
 }
-pub(crate) async fn interpret(path: String, arg: &Cli) {
+pub(crate) async fn interpret(path: String, output_path: &String) {
     let mut yaml_content = String::new();
     File::open(path)
         .expect("Could not find file")
@@ -32,7 +31,7 @@ pub(crate) async fn interpret(path: String, arg: &Cli) {
             &env.resources.cloudfront,
             Some(format!(
                 "{output_root}/{app}/{env}/",
-                output_root = arg.output_path.as_str(),
+                output_root = output_path,
                 app = config.app,
                 env = _env_name
             )),

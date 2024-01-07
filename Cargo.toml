@@ -14,5 +14,5 @@ chrono = "0.4.31"
 rust_search = "2.1.0"
 serde_yaml = "0.9.30"
 serde = { version = "1.0.194", features = ["derive"] }
-clap = { version = "4.4.13", features = ["derive"] }
+clap = { version = "4.4.13", features = ["cargo","derive"] }
 indicatif = { version = "0.17.7", features = [] }
