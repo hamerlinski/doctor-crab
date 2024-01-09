@@ -20,7 +20,7 @@ pub enum Commands {
         #[arg(short, long, default_value = "docs")]
         output_path: String,
     },
-    /// Generates documentation for provided resources found in .doctor-crab.yaml files
+    /// Generates single markdown documentation file for resource with provided id
     #[command(arg_required_else_help = true)]
     Single {
         /// Type of the resource
