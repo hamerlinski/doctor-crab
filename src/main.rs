@@ -1,15 +1,15 @@
 mod cli;
 mod resources;
 mod utils;
-use crate::resources::distro;
+use resources::distro;
 
-use crate::cli::arguments;
-use crate::cli::arguments::Commands as commands;
-use crate::cli::arguments::Resources as res;
-use crate::resources::analyze;
-use crate::utils::search;
+use cli::arguments;
+use cli::arguments::Commands as commands;
+use cli::arguments::Resources as res;
 use indicatif::ProgressBar;
+use resources::analyze;
 use std::io;
+use utils::search;
 
 #[tokio::main]
 async fn main() -> io::Result<()> {

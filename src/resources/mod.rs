@@ -1,2 +1,2 @@
-pub(crate) mod analyze;
+pub mod analyze;
 pub mod distro;
